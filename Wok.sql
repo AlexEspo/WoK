@@ -45,24 +45,6 @@ CREATE TABLE Receipts(
     Primary Key(ReceiptID)
 );
 
-CREATE TABLE EmployeeSchedule(
-    SSN     char(9)     NOT NULL,
-    dateOfBeginnningWeek date       NOT NULL,
-    numDaysWork     char(7),
-    
-    Foreign Key(SSN) REFERENCES EMPLOYEE(SSN)
+CREATE TABLE ViewCustomerReceipt(
+    Username
 );
-CREATE TABLE viewCustomerReceipts(
-    SneakerName     varchar(50)          NOT NULL,
-    Username        varchar(24)     NOT NULL,
-    CustomerName    varchar(24)     NOT NULL,
-    TotalPrice      double          NOT NULL,
-    NumberOfSneakersBought  int     NOT NULL,
-    Address         varchar(50)     NOT NULL,
-    Date            date            NOT NULL,
-    ReceiptID       int             NOT NULL,
-    Foreign Key(ReceiptID) REFERENCES Receipts(ReceiptID),
-    Foreign Key(Username) REFERENCES Customers(Username)
-);
-
-// Joins SELECT Receipts.SneakerName, Receipts.CustomerName, Receipts.TotalPrice, Receipts.NumberOfSneakersBought, Receipts.Address, Receipts.DateofPurchase FROM viewCustomerReceipts INNER JOIN Receipts ON Receipts.ReceiptID = viewCustomerReceipts.ReceiptID;
