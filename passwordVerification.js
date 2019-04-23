@@ -1,4 +1,4 @@
-$(document).ready(function(){
+$(index.html).ready(function(){
   $('#password, #passwordVerify').on('keyup', function () {
     if ($('#password').val() == $('#passwordVerify').val()) {
       $('#message').html('Matching').css('color', 'green');

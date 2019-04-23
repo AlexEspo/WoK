@@ -5,22 +5,20 @@
     $dbpass = "Matthewwing98";
     $user = $_POST["username"];
     $password = $_POST["password"];
-
     $link = new mysqli($local, $dbuser, $dbpass, $db);
     if (mysqli_connect_errno()) {
         printf("Connect failed: %s\n", mysqli_connect_error());
         exit();
     }
-    $sql = "SELECT Username, Password FROM Customers";
+    $sql = "SELECT * FROM userLogin WHERE Username = '{$user}'";
     $result = mysqli_query($link,$sql);
-    $row = mysqli_fetch_assoc($result);
-    echo $row["username"];
-    echo $row["password"];
-    $hash = password_hash($password, PASSWORD_DEFAULT);
-    if($row["Username"] == $user && $row["Password"] == $password){
-        header("Location: https://montclair.instructure.com/login/canvas", true, 301);
-        exit();
-        echo "Login Successful";
+    $row=mysqli_fetch_assoc($result);
+    $hash = password_hash($password, PASSWORD_DEFAULT); 
+    $auth = password_verify($row['Password'], $hash);
+    if($auth){
+        header("Location: home.php");
+    }else{
+        echo "Could not verify";
     }
     mysqli_close($link);
     

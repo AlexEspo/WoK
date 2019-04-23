@@ -1,5 +1,5 @@
 <?php
-$connect = mysqli_connect("localhost", "root", "", "wok");
+$connect = mysqli_connect("localhost", "wingmat_Matt", "Matthewwing98", "wingmat_WoK");
 ?>
 
 
