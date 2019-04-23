@@ -1,10 +1,12 @@
 <?php
-    $db = "wingmat_WoK";
+    session_start();
+    $db = "wok";
     $local = "localhost";
-    $dbuser = "wingmat_Matt";
-    $dbpass = "Matthewwing98";
+    $dbuser = "alexespo";
+    $dbpass = "password";
     $user = $_POST["username"];
     $password = $_POST["password"];
+    $_SESSION['user'] = $user;
     $link = new mysqli($local, $dbuser, $dbpass, $db);
     if (mysqli_connect_errno()) {
         printf("Connect failed: %s\n", mysqli_connect_error());
