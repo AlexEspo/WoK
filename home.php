@@ -1,16 +1,16 @@
 <?php
   session_start();
 
-  if($_SESSION['access'] = 'C'){
+  if($_SESSION['access'] == 'C'){
     require 'header.php';
   }
-  else if($_SESSION['access'] = 'E'){
+  else if($_SESSION['access'] == 'E'){
     require 'employeeheader.php';
   }
-  else if($_SESSION['access'] = 'M'){
+  else if($_SESSION['access'] == 'M'){
     require 'managerheader.php';
   }
-  else if($_SESSION['access'] = 'A'){
+  else if($_SESSION['access'] == 'A'){
     require 'adminheader.php';
   }
 ?>

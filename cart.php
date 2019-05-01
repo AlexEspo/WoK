@@ -1,6 +1,20 @@
 <?php
+session_start();
+
+if($_SESSION['access'] == 'C'){
+  require 'header.php';
+}
+else if($_SESSION['access'] == 'E'){
+  require 'employeeheader.php';
+}
+else if($_SESSION['access'] == 'M'){
+  require 'managerheader.php';
+}
+else if($_SESSION['access'] == 'A'){
+  require 'adminheader.php';
+}
+
 $connect = mysqli_connect("localhost", "alexespo", "password", "wok");
-require 'header.php';
 ?>
 
 <div class="form-actions">

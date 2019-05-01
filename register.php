@@ -28,15 +28,21 @@ else{
         $newDate = date("Y-m-d", strtotime($dob));
         $sql = "INSERT INTO Customers(Username, Name, Email, Address, BirthDate, Password) VALUES ('{$user}', '{$name}', '{$email}', '{$address}', '{$newDate}', '{$hashPass}')";
         $sqlRegisterUser = "INSERT INTO userLogin(Username, Password, UserType) VALUES ('{$user}', '{$hashPass}', 'C')";
-            if(mysqli_query($link,$sql)){
-                if(mysqli_query($link,$sqlRegisterUser)){
-                    header("Location: loginForm.php");
-                    echo "Successful";
-                }else{
-                    echo "Not successful in entering in user into userLogin.";
-                }
+            // if(mysqli_query($link,$sql)){
+            //     if(mysqli_query($link,$sqlRegisterUser)){
+            //         header("Location: loginForm.php");
+            //         echo "Successful";
+            //     }else{
+            //         echo "Not successful in entering in user into userLogin.";
+            //     }
+            // }else{
+            //     echo "Not Successful";
+            // }
+            if(mysqli_query($link,$sqlRegisterUser)){
+                header("Location: loginForm.php");
+                echo "Successful";
             }else{
-                echo "Not Successful";
+                echo "Not successful in entering in user into userLogin.";
             }
 }
 //Make validation for password 

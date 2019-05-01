@@ -33,7 +33,7 @@
           Admin
         </a>   
         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            <a class="dropdown-item" id = "admin" href="#">View employee Schedule</a>
+            <a class="dropdown-item" id = "admin" href="#">View employee schedule</a>
         </div>
       </li>
     </div>

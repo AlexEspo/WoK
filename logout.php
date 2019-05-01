@@ -4,6 +4,7 @@ session_unset();
 session_destroy();
 ?>
 
+
 <body onload="logout()">
   <script>
     function logout() {
