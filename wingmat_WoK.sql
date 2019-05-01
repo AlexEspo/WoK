@@ -3,8 +3,8 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Apr 23, 2019 at 04:47 PM
--- Server version: 5.7.25
+-- Generation Time: May 01, 2019 at 02:39 PM
+-- Server version: 5.7.26
 -- PHP Version: 7.2.7
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
@@ -42,14 +42,9 @@ CREATE TABLE `Customers` (
 --
 
 INSERT INTO `Customers` (`Username`, `Name`, `Email`, `Address`, `BirthDate`, `Password`) VALUES
-('winger', 'Matthew Wing', 'wingm1@montclair.edu', '45 Awesome Avenue', '2019-04-16', '123'),
-('asd', 'dsa', 'dsadsa@gmail.com', 'fdsfds', '2019-04-03', 'asd'),
-('robo', 'robert', 'robo@gmail.com', 'fda', '2019-04-01', '123'),
-('bob', 'bob', 'bob@gmail.com', 'asdf', '2019-04-09', '123'),
-('fdsa', 'fdsa', 'fds@gmail.com', 'gfdsgdsh', '2019-04-02', 'fdsa'),
-('buddy', 'Lisa Chueh', 'lisa@gmail.com', '30 Ryerson Road', '2000-04-19', 'willy'),
-('qwe', 'qwe', 'qwe@gmail.com', 'qwe', '2019-04-03', 'qwe'),
-('tonda', 'David', 'tonda@gmail.com', 'tonda street', '1998-07-28', '123');
+('chuck', 'Chuck Norris', 'norris@gmail.com', '123 Triangle Street', '2019-04-02', 'norris'),
+('jei', 'Jeremiah ', 'jei@gmail.com', '65 Montclair Street', '2019-04-10', '123'),
+('aglasswala', 'Aadil', 'aglasswala@gmail.com', '43 Dell Street', '2019-04-02', '123');
 
 -- --------------------------------------------------------
 
@@ -111,7 +106,10 @@ CREATE TABLE `Receipts` (
 --
 
 INSERT INTO `Receipts` (`CustomerName`, `Address`, `TotalPrice`, `SneakerName`, `NumberOfSneakersBought`, `DateofPurchase`, `ReceiptID`, `Username`) VALUES
-('Alex ', 'alex house', 150, 'Adidas Wave', 1, '2019-04-01', 1, 'espoAlex');
+('Alex ', 'alex house', 150, 'Adidas Wave', 1, '2019-04-01', 1, 'espoAlex'),
+('Alex', 'alex house', 150, 'Adidas Wrest Adidas Wave', 2, '2019-04-02', 2, 'espoAlex'),
+('Shijil', '24 Freight Lane', 100, 'Puma CRT\'s', 1, '2019-03-04', 3, 'espoAlex'),
+('Alex', '23 Whatever Lane', 10, 'Awesome Shoes', 2, '2019-04-02', 4, 'espoAlex');
 
 -- --------------------------------------------------------
 
@@ -145,13 +143,9 @@ CREATE TABLE `userLogin` (
 --
 
 INSERT INTO `userLogin` (`Username`, `Password`, `UserType`) VALUES
-('buddy', 'willy', 'C'),
-('robo', '123', 'C'),
-('bob', '123', 'C'),
-('fdsa', 'fdsa', 'C'),
-('qwe', 'qwe', 'C'),
-('asd', 'asd', 'C'),
-('tonda', '123', 'C');
+('jei', '$2y$10$uVKG1jgjVre409kKEsBR7OIMVpCihhGvXIHEVjx6nDmfTLXNT95Pm', 'C'),
+('aglasswala', '$2y$10$CrMO.NXL5MO8/HisIALYg.jIyAX.8cUR/RLl35L0YwAp2ADZ1Ahwe', 'C'),
+('chuck', '$2y$10$q0CIqbQMk1wtp6L8qQ.5hO7kV9/RGsP3A2ogk/X5QGXPHT8VD4tpO', 'C');
 
 -- --------------------------------------------------------
 

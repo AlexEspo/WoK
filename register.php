@@ -10,7 +10,6 @@ $name = $_POST["Name"];
 $email = $_POST["email"];
 $address = $_POST["Address"];
 $dob = $_POST["dob"];
-$_SESSION['user'] = $_POST['username'];
 
 $link = new mysqli($local, $dbuser, $dbpass, $db);
 if (mysqli_connect_errno()) {
@@ -24,12 +23,13 @@ if(mysqli_num_rows($result_username) > 0){
     echo "Sorry username has been taken";
 }
 else{
+        $hashPass = password_hash($password, PASSWORD_DEFAULT);
         $newDate = date("Y-m-d", strtotime($dob));
         $sql = "INSERT INTO Customers(Username, Name, Email, Address, BirthDate, Password) VALUES ('{$user}', '{$name}', '{$email}', '{$address}', '{$newDate}', '{$password}')";
-        $sqlRegisterUser = "INSERT INTO userLogin(Username, Password, UserType) VALUES ('{$user}', '{$password}', 'C')";
+        $sqlRegisterUser = "INSERT INTO userLogin(Username, Password, UserType) VALUES ('{$user}', '{$hashPass}', 'C')";
             if(mysqli_query($link,$sql)){
                 if(mysqli_query($link,$sqlRegisterUser)){
-                    header("Location: test.php");
+                    header("Location: loginForm.php");
                     echo "Successful";
                 }else{
                     echo "Not successful in entering in user into userLogin.";

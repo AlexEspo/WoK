@@ -1,3 +1,6 @@
+<?php
+    session_start();
+?>
 <html>
 <head>
  <title>WoK</title>
@@ -55,7 +58,11 @@
   <h1 class="display-4">Welcome to World of Kicks!</h1>
   <p class="lead">Some text</p>
   <hr class="my-4">
-  <p>Some text</p>
+  <p>Some text
+    <?php
+        echo $_SESSION['user'];
+    ?>
+  </p>
 </div>
 
 <div class="card-deck">
