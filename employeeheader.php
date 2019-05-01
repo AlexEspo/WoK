@@ -28,6 +28,14 @@
             <a class="dropdown-item" href="logout.php">Logout</a>
         </div>
       </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Admin
+        </a>   
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <a class="dropdown-item" id = "admin" href="#">View employee Schedule</a>
+        </div>
+      </li>
     </div>
   </div>
   <span class="navbar-text">

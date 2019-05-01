@@ -1,9 +1,9 @@
 <?php
 session_start();
-$db = "wingmat_WoK";
+$db = "wok";
 $local = "localhost";
-$dbuser = "wingmat_Matt";
-$dbpass = "Matthewwing98";
+$dbuser = "alexespo";
+$dbpass = "password";
 $user = $_POST["username"];
 $password = $_POST["password"];
 $name = $_POST["Name"];
@@ -24,12 +24,13 @@ if(mysqli_num_rows($result_username) > 0){
     echo "Sorry username has been taken";
 }
 else{
+        $hashPass = password_hash($password, PASSWORD_DEFAULT);
         $newDate = date("Y-m-d", strtotime($dob));
-        $sql = "INSERT INTO Customers(Username, Name, Email, Address, BirthDate, Password) VALUES ('{$user}', '{$name}', '{$email}', '{$address}', '{$newDate}', '{$password}')";
-        $sqlRegisterUser = "INSERT INTO userLogin(Username, Password, UserType) VALUES ('{$user}', '{$password}', 'C')";
+        $sql = "INSERT INTO Customers(Username, Name, Email, Address, BirthDate, Password) VALUES ('{$user}', '{$name}', '{$email}', '{$address}', '{$newDate}', '{$hashPass}')";
+        $sqlRegisterUser = "INSERT INTO userLogin(Username, Password, UserType) VALUES ('{$user}', '{$hashPass}', 'C')";
             if(mysqli_query($link,$sql)){
                 if(mysqli_query($link,$sqlRegisterUser)){
-                    header("Location: test.php");
+                    header("Location: loginForm.php");
                     echo "Successful";
                 }else{
                     echo "Not successful in entering in user into userLogin.";
