@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: May 04, 2019 at 02:21 AM
+-- Generation Time: May 04, 2019 at 02:50 PM
 -- Server version: 5.7.26
 -- PHP Version: 7.2.7
 
@@ -110,19 +110,20 @@ CREATE TABLE `Receipts` (
   `NumberOfSneakersBought` int(11) NOT NULL,
   `DateofPurchase` date NOT NULL,
   `ReceiptID` int(11) NOT NULL,
-  `Username` varchar(50) NOT NULL
+  `Username` varchar(50) NOT NULL,
+  `image` blob NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `Receipts`
 --
 
-INSERT INTO `Receipts` (`CustomerName`, `Address`, `TotalPrice`, `SneakerName`, `NumberOfSneakersBought`, `DateofPurchase`, `ReceiptID`, `Username`) VALUES
-('Alex ', 'alex house', 150, 'Adidas Wave', 1, '2019-04-01', 1, 'espoAlex'),
-('Alex', 'alex house', 150, 'Adidas Wrest Adidas Wave', 2, '2019-04-02', 2, 'espoAlex'),
-('Shijil', '24 Freight Lane', 100, 'Puma CRT\'s', 1, '2019-03-04', 3, 'espoAlex'),
-('Alex', '23 Whatever Lane', 10, 'Awesome Shoes', 2, '2019-04-02', 4, 'espoAlex'),
-('Chuck ', '12 Awesome Street', 100, 'Puma Sneakers', 1, '2019-05-01', 5, 'chuck');
+INSERT INTO `Receipts` (`CustomerName`, `Address`, `TotalPrice`, `SneakerName`, `NumberOfSneakersBought`, `DateofPurchase`, `ReceiptID`, `Username`, `image`) VALUES
+('Alex ', 'alex house', 150, 'Adidas Wave', 1, '2019-04-01', 1, 'espoAlex', ''),
+('Alex', 'alex house', 150, 'Adidas Wrest Adidas Wave', 2, '2019-04-02', 2, 'espoAlex', ''),
+('Shijil', '24 Freight Lane', 100, 'Puma CRT\'s', 1, '2019-03-04', 3, 'espoAlex', ''),
+('Alex', '23 Whatever Lane', 10, 'Awesome Shoes', 2, '2019-04-02', 4, 'espoAlex', ''),
+('Chuck ', '12 Awesome Street', 100, 'Puma Sneakers', 1, '2019-05-01', 5, 'chuck', '');
 
 -- --------------------------------------------------------
 

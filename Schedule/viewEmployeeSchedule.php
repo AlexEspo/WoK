@@ -15,7 +15,7 @@
               color:#fff;
               text-align: center;
             } td {
-              padding:5px;
+              text-align:center;
             }
             
             h1 {
@@ -52,29 +52,21 @@
                     "<div class = 'receiptContainer'><table width = 100%>
                     <tr>
                         <th>Employee ID</th>
-                        <td>" . $arrayOfSchedules['EmpID'] . "</td>
-                    </tr>
-                    <tr>
                         <th>Name</th>
-                        <td>" . $arrayOfSchedules['Name'] . "</td>
-                    </tr>
-                    <tr>
                         <th>Date</th>
-                        <td>" . date('m-d-Y', strtotime($arrayOfSchedules['Date'])) . "</td>
-                    </tr>
-                    <tr>
                         <th>Start Shift</th>
-                        <td>" . date('h:i:s a', strtotime($arrayOfSchedules['startShift'])) . "</td>
-                    </tr>
-                    <tr>
                         <th>End Shift</th>
-                        <td>" . date('h:i:s a', strtotime($arrayOfSchedules['endShift'])) ."</td>
+                        <th>Hourly Pay</th>
                     </tr>
                     <tr>
-                        <th>HourlyPay</th>
+                        <td>" . $arrayOfSchedules['EmpID'] . "</td>
+                        <td>" . $arrayOfSchedules['Name'] . "</td>
+                        <td>" . date('m-d-Y', strtotime($arrayOfSchedules['Date'])) . "</td>
+                        <td>" . date('h:i:s a', strtotime($arrayOfSchedules['startShift'])) . "</td>
+                        <td>" . date('h:i:s a', strtotime($arrayOfSchedules['endShift'])) ."</td>
                         <td>" . $arrayOfSchedules['Hourly_Pay'] ."</td>
                     </tr>
-                    </table></div>";
+                    </table></div><br><br>";
                 }
             }
 ?>

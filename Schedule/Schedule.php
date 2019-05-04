@@ -21,7 +21,8 @@
     <body>
         <h1>Emp Schedule</h1>
         <button id = "empSchedule">Click For Your Employee Schedule</button>
-        
+        <br>
+        <br>
         <table id = "schedule" width = 100%></table>
     </body>
 </html>

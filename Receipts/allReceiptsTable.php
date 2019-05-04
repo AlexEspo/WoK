@@ -17,8 +17,10 @@
     $sql->execute();
     $result = $sql->get_result();
     // $result = mysqli_query($link,$sql);
-    
-    while($arrayOfReceipts=mysqli_fetch_assoc($result)){
+    if(mysqli_num_rows($result) == 0){
+        echo "<h3>It seems that you did not buy anything this day</h3>";
+    }else{
+        while($arrayOfReceipts=mysqli_fetch_assoc($result)){
         echo 
         "<div class = 'receiptContainer'><table width = 100%>
             <th>SneakerName</th>
@@ -53,5 +55,7 @@
             <td><strong>" . $arrayOfReceipts['TotalPrice'] . "</strong></td>
         </tr>
         </table></div>";
+    }    
     }
+    
 ?>
