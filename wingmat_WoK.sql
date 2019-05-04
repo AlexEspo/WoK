@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: May 01, 2019 at 02:39 PM
+-- Generation Time: May 04, 2019 at 02:21 AM
 -- Server version: 5.7.26
 -- PHP Version: 7.2.7
 
@@ -43,6 +43,8 @@ CREATE TABLE `Customers` (
 
 INSERT INTO `Customers` (`Username`, `Name`, `Email`, `Address`, `BirthDate`, `Password`) VALUES
 ('chuck', 'Chuck Norris', 'norris@gmail.com', '123 Triangle Street', '2019-04-02', 'norris'),
+('987', '987', 'test@gmail.com', 'Cool Lanes', '2019-05-01', '$2y$10$NS5E7WE5NktXFNI7refJk.TjjG/XmuadTNbTFAqODQVz./mgsy4l6'),
+('tonda', 'David ', 'tonda@gmail.com', 'tonda street', '2019-05-01', '$2y$10$wixkFlvVKjABx.7A7l9S3eDlQJU0egXyf2K2.aag33bbj32BPp2bS'),
 ('jei', 'Jeremiah ', 'jei@gmail.com', '65 Montclair Street', '2019-04-10', '123'),
 ('aglasswala', 'Aadil', 'aglasswala@gmail.com', '43 Dell Street', '2019-04-02', '123');
 
@@ -53,7 +55,7 @@ INSERT INTO `Customers` (`Username`, `Name`, `Email`, `Address`, `BirthDate`, `P
 --
 
 CREATE TABLE `EMPLOYEE` (
-  `EmpID` int(4) NOT NULL,
+  `EmpID` varchar(255) NOT NULL,
   `Password` varchar(50) NOT NULL,
   `Name` varchar(24) NOT NULL,
   `Hourly_Pay` double NOT NULL,
@@ -70,7 +72,7 @@ CREATE TABLE `EMPLOYEE` (
 --
 
 INSERT INTO `EMPLOYEE` (`EmpID`, `Password`, `Name`, `Hourly_Pay`, `SSN`, `Address`, `BirthDate`, `StartDate`, `SupervisorID`, `UserType`) VALUES
-(987, '123', 'Matthew Wing', 12.5, '123456789', '48 Awesome Avenue', '2019-04-01', '2019-04-02', '987654321', 'E');
+('987', '123', 'Matthew Wing', 12.5, '123456789', '48 Awesome Avenue', '2019-04-01', '2019-04-02', '987654321', 'E');
 
 -- --------------------------------------------------------
 
@@ -80,9 +82,19 @@ INSERT INTO `EMPLOYEE` (`EmpID`, `Password`, `Name`, `Hourly_Pay`, `SSN`, `Addre
 
 CREATE TABLE `EmployeeSchedule` (
   `SSN` char(9) NOT NULL,
-  `dateOfBeginnningWeek` date NOT NULL,
-  `numDaysWork` char(7) DEFAULT NULL
+  `Date` date NOT NULL,
+  `startShift` time NOT NULL,
+  `endShift` time NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `EmployeeSchedule`
+--
+
+INSERT INTO `EmployeeSchedule` (`SSN`, `Date`, `startShift`, `endShift`) VALUES
+('123456789', '2019-05-06', '12:30:00', '15:06:00'),
+('123456789', '2019-05-02', '12:30:00', '00:30:00'),
+('123456789', '2019-05-07', '07:30:00', '16:00:00');
 
 -- --------------------------------------------------------
 
@@ -109,7 +121,8 @@ INSERT INTO `Receipts` (`CustomerName`, `Address`, `TotalPrice`, `SneakerName`, 
 ('Alex ', 'alex house', 150, 'Adidas Wave', 1, '2019-04-01', 1, 'espoAlex'),
 ('Alex', 'alex house', 150, 'Adidas Wrest Adidas Wave', 2, '2019-04-02', 2, 'espoAlex'),
 ('Shijil', '24 Freight Lane', 100, 'Puma CRT\'s', 1, '2019-03-04', 3, 'espoAlex'),
-('Alex', '23 Whatever Lane', 10, 'Awesome Shoes', 2, '2019-04-02', 4, 'espoAlex');
+('Alex', '23 Whatever Lane', 10, 'Awesome Shoes', 2, '2019-04-02', 4, 'espoAlex'),
+('Chuck ', '12 Awesome Street', 100, 'Puma Sneakers', 1, '2019-05-01', 5, 'chuck');
 
 -- --------------------------------------------------------
 
@@ -133,7 +146,7 @@ CREATE TABLE `Sneaker_Type` (
 --
 
 CREATE TABLE `userLogin` (
-  `Username` varchar(24) NOT NULL,
+  `Username` varchar(24) CHARACTER SET latin1 COLLATE latin1_general_cs NOT NULL,
   `Password` varchar(100) NOT NULL,
   `UserType` varchar(1) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
@@ -144,8 +157,10 @@ CREATE TABLE `userLogin` (
 
 INSERT INTO `userLogin` (`Username`, `Password`, `UserType`) VALUES
 ('jei', '$2y$10$uVKG1jgjVre409kKEsBR7OIMVpCihhGvXIHEVjx6nDmfTLXNT95Pm', 'C'),
-('aglasswala', '$2y$10$CrMO.NXL5MO8/HisIALYg.jIyAX.8cUR/RLl35L0YwAp2ADZ1Ahwe', 'C'),
-('chuck', '$2y$10$q0CIqbQMk1wtp6L8qQ.5hO7kV9/RGsP3A2ogk/X5QGXPHT8VD4tpO', 'C');
+('aglasswala', '$2y$10$CrMO.NXL5MO8/HisIALYg.jIyAX.8cUR/RLl35L0YwAp2ADZ1Ahwe', 'E'),
+('chuck', '$2y$10$q0CIqbQMk1wtp6L8qQ.5hO7kV9/RGsP3A2ogk/X5QGXPHT8VD4tpO', 'A'),
+('tonda', '$2y$10$wixkFlvVKjABx.7A7l9S3eDlQJU0egXyf2K2.aag33bbj32BPp2bS', 'C'),
+('987', '$2y$10$NS5E7WE5NktXFNI7refJk.TjjG/XmuadTNbTFAqODQVz./mgsy4l6', 'E');
 
 -- --------------------------------------------------------
 

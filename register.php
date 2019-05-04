@@ -10,36 +10,44 @@ $name = $_POST["Name"];
 $email = $_POST["email"];
 $address = $_POST["Address"];
 $dob = $_POST["dob"];
-
+$_SESSION['user'] = $_POST['username'];
 $link = new mysqli($local, $dbuser, $dbpass, $db);
 if (mysqli_connect_errno()) {
     printf("Connect failed: %s\n", mysqli_connect_error());
     exit();
 }
-$sql_username = "SELECT * FROM Customers WHERE Username = '{$user}'";
-
+$sql_username = ("SELECT * FROM Customers WHERE Username = '{$user}'");
 $result_username = mysqli_query($link, $sql_username);
 if(mysqli_num_rows($result_username) > 0){
-    echo "Sorry username has been taken";
+    echo "<script type = 'text/javascript'>
+            alert('Username has been taken');
+            window.location.href = 'index.php';
+        </script>";
 }
 else{
         $hashPass = password_hash($password, PASSWORD_DEFAULT);
         $newDate = date("Y-m-d", strtotime($dob));
-        $sql = "INSERT INTO Customers(Username, Name, Email, Address, BirthDate, Password) VALUES ('{$user}', '{$name}', '{$email}', '{$address}', '{$newDate}', '{$password}')";
-        $sqlRegisterUser = "INSERT INTO userLogin(Username, Password, UserType) VALUES ('{$user}', '{$hashPass}', 'C')";
-            if(mysqli_query($link,$sql)){
-                if(mysqli_query($link,$sqlRegisterUser)){
-                    header("Location: loginForm.php");
-                    echo "Successful";
-                }else{
-                    echo "Not successful in entering in user into userLogin.";
-                }
+        $sql = $link->prepare("INSERT INTO Customers(Username, Name, Email, Address, BirthDate, Password) VALUES (?, ?, ?, ?, ?, ?)");
+        $sql->bind_param('ssssss', $user, $name, $email, $address, $newDate, $hashPass);
+        $sqlRegisterUser = $link->prepare("INSERT INTO userLogin(Username, Password, UserType) VALUES (?, ?, 'A')");
+        $sqlRegisterUser->bind_param("ss", $user, $hashPass);
+        
+        if($sql->execute() > 0){
+            if($sqlRegisterUser->execute() > 0){
+                header("Location: Login/loginForm.php");
             }else{
-                echo "Not Successful";
+                echo "<script type = 'text/javascript'>
+                        alert('Something went wrong');
+                        window.location.href = 'index.php';
+                    </script>";
             }
+        }else{
+            echo "<script type = 'text/javascript'>
+                        alert('Something went wrong');
+                        window.location.href = 'index.php';
+                    </script>";
+        }
 }
 //Make validation for password 
 $link->close();
-
-
 ?>

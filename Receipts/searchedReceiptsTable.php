@@ -1,22 +1,47 @@
 <?php
-                $db = "wingmat_WoK";
-                $local = "localhost";
-                $dbuser = "wingmat_Matt";
-                $dbpass = "Matthewwing98";
-                $_SESSION['user'] = "espoAlex";
+    session_start();
+?>
+<html>
+    <head>
+        <style>
+            .receiptContainer{
+                border: 1px dotted black;
+                width: 50%;
+                margin: 0;
+                display:inline-block;
+            }
+            td{
+                float: right;
+            }
             
-                $link = new mysqli($local, $dbuser, $dbpass, $db);
-                if (mysqli_connect_errno()) {
-                    printf("Connect failed: %s\n", mysqli_connect_error());
-                    exit();
-                }
-                
-                $sql = $link->prepare("SELECT * FROM Receipts WHERE Username = ?");
-                $sql->bind_param('s', $_SESSION['user']);
-                $sql->execute();
-                $result = $sql->get_result();
-                // $result = mysqli_query($link,$sql);
-                
+        </style>
+    <script type = "text/javascript">
+        
+    </script>
+
+    </head>
+
+    <body>
+    
+    <?php
+            $db = "wingmat_WoK";
+            $local = "localhost";
+            $dbuser = "wingmat_Matt";
+            $dbpass = "Matthewwing98";
+            $searchResult = $_POST['date'];
+            $link = new mysqli($local, $dbuser, $dbpass, $db);
+            if (mysqli_connect_errno()) {
+                printf("Connect failed: %s\n", mysqli_connect_error());
+                exit();
+            }
+            $newDate = date("Y-m-d", strtotime($searchResult));
+            $sql = $link->prepare("SELECT * FROM Receipts WHERE DateofPurchase = ? AND Username = ?" );
+            $sql->bind_param('ss', $newDate, $_SESSION['user']);
+            $sql->execute();
+            $result = $sql->get_result();
+            if(mysqli_num_rows($result) == 0){
+                echo "<h3>It seems that you did not buy anything this day</h3>";
+            }else{
                 while($arrayOfReceipts=mysqli_fetch_assoc($result)){
                     echo 
                     "<div class = 'receiptContainer'><table width = 100%>
@@ -53,4 +78,7 @@
                     </tr>
                     </table></div>";
                 }
-            ?>
+            }
+        ?>
+ </body>
+</html>
