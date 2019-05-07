@@ -18,12 +18,3 @@
   color: black;
   transition: 0.25s;
 }
-
-.container input [type = "onclick"]{
-  
-}
-
-.disabled-link{
-  color:grey;
-  text-decoration:underline;
-  }

@@ -38,13 +38,14 @@ else if($_SESSION['access'] == 'A'){
 
 
 <html>
+<p></p>
 
     <h1>Your Receipts!</h1>
         <p>Input the day you bought a product</p>
-        <form action = "" method = "POST" name = "form">
+        <form action = "" method = "POST" name = "form" class = "reg">
             <input type = "date" name = "date" id = "date">
-            <button type = "button" id = "button">Search</button>
-            <button type = "button" id = "refresh">Get All Receipts</button>
+            <button type = "button" class="btn btn-primary" id = "button">Search</button>
+            <button type = "button" class="btn btn-primary" id = "refresh">Get All Receipts</button>
         </form>
     <br>
         <div id = "searchedTable">

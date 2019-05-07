@@ -36,7 +36,7 @@
     <p></p><p></p>
     <label for="password">Password:</label><br>
     <input type = "password" placeholder="Password" name  = "password" required><br><br>
-    <button type="submit" class="btn btn-primary btn-lg" name="login">Login</button>
+    <button type="submit" class="btn btn-primary" name="login">Login</button>
 </div>
 </form>
 

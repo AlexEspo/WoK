@@ -80,6 +80,7 @@
     <label for = "email">Email address:</label><br>
     <input type = "email" placeholder="Email" name = "email" id = "email" required>
     <p></p><p></p>
+    <input onclick = "checkAfterSubmit()" class = "btn btn-primary" type = "submit" value = "Register">
     </div>
     <div class="col-auto"style = "float: none; margin: 0 auto;"><br><br><br>
     <label for="password">Password:</label><br>
@@ -102,8 +103,8 @@
      <span id = 'errorLogin'></span>
     </div>
   </div>
-  <input onclick = "checkAfterSubmit()" class = "btn btn-primary" type = "submit" value = "Register">
 </div>
+
 
 </form>
 
