@@ -10,8 +10,7 @@ if (mysqli_connect_errno()) {
     printf("Connect failed: %s\n", mysqli_connect_error());
     exit();
 }
-
-$name = $_POST["dname"];        
+      
 $emp = $_POST["dempid"];
 
 $sql = "DELETE FROM employee WHERE EmpID = $emp";

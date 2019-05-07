@@ -1,5 +1,5 @@
 <?php
-//error_reporting (E_ALL ^ E_NOTICE);
+// error_reporting (E_ALL ^ E_NOTICE);
 $db = "wok";
 $local = "localhost";
 $dbuser = "alexespo";
@@ -24,7 +24,7 @@ if (mysqli_connect_errno()) {
     printf("Connect failed: %s\n", mysqli_connect_error());
     exit();
 }
-$sql_emp = "SELECT * FROM employee WHERE EmpID = '{$emp}'";
+$sql_emp = ("SELECT * FROM employee WHERE EmpID = '{$emp}'");
 
 $result_emp = mysqli_query($link, $sql_emp);
 if(mysqli_num_rows($result_emp) > 0){

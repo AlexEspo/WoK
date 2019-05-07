@@ -39,7 +39,7 @@
                     console.log("Hello World");
                  }
                 else{
-                    document.getElementById('registerForm').submit();
+                    document.getElementById('addemployeeForm').submit();
                 }
             }
             else{
@@ -51,7 +51,8 @@
 
 
 
-<body> <form id = "addemployeeForm" action="addemployee.php" method="POST">
+<body> 
+<form id = "addemployeeForm" action="addemployee.php" method="POST">
 <div class="container"><br><br>
   <div class="row"> 
     <div class="col-auto" style = "float: none; margin: 0 auto;">
@@ -108,10 +109,6 @@
 <div class="container" style = "margin-left: 28em;">
     <div class="col" style = "float: none; margin: 0 auto;">
     <h1>Delete Employee</h1> <p></p><p></p>
-      <input type="text" class="col-xs-3" placeholder="Employee Name" name = "dname">
-    </div>
-    <br>
-    <div class="col" style = "float: none; margin: 0 auto;">
       <input type="text" class="col-xs-3" placeholder="EMPID" name = "dempid" >
       <br><br>
       <input class = "btn btn-primary btn-outline-danger" type = "submit" value = "Delete">
