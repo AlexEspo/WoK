@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: May 07, 2019 at 04:10 PM
+-- Generation Time: May 07, 2019 at 04:22 PM
 -- Server version: 5.7.26
 -- PHP Version: 7.2.7
 
@@ -32,7 +32,6 @@ CREATE TABLE `Customers` (
   `Username` varchar(24) NOT NULL,
   `Name` varchar(24) NOT NULL,
   `Email` varchar(320) NOT NULL,
-  `BirthDate` date NOT NULL,
   `Password` varchar(255) NOT NULL,
   `StreetNumber` int(11) NOT NULL,
   `StreetName` varchar(30) NOT NULL,
@@ -43,9 +42,9 @@ CREATE TABLE `Customers` (
 -- Dumping data for table `Customers`
 --
 
-INSERT INTO `Customers` (`Username`, `Name`, `Email`, `BirthDate`, `Password`, `StreetNumber`, `StreetName`, `City`) VALUES
-('tonda', 'David Tonda', 'tonda@gmail.com', '2019-05-01', '$2y$10$QbQZLryCRu8T9q3kXd7JweuaehD/whKa1PgSN.VD1sgwmXDu/96ke', 12, 'Walter', 'Milburn'),
-('philips', 'Shijil', 'philip@gmail.com', '1990-08-18', '$2y$10$cPzQgTHWRCdQLL2ZuWNTmOc54aUThgexzqOsx7EFYKkRRq.B6R8xi', 45, 'Driver', 'Forest');
+INSERT INTO `Customers` (`Username`, `Name`, `Email`, `Password`, `StreetNumber`, `StreetName`, `City`) VALUES
+('tonda', 'David Tonda', 'tonda@gmail.com', '$2y$10$QbQZLryCRu8T9q3kXd7JweuaehD/whKa1PgSN.VD1sgwmXDu/96ke', 12, 'Walter', 'Milburn'),
+('philips', 'Shijil', 'philip@gmail.com', '$2y$10$cPzQgTHWRCdQLL2ZuWNTmOc54aUThgexzqOsx7EFYKkRRq.B6R8xi', 45, 'Driver', 'Forest');
 
 -- --------------------------------------------------------
 
