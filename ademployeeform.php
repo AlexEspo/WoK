@@ -1,7 +1,5 @@
 <?php
-  session_start();
-  require 'addemployee.php';
-
+  session_start(); 
   if($_SESSION['access'] == 'C'){
     require 'header.php';
   }

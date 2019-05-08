@@ -3,8 +3,8 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Apr 23, 2019 at 04:47 PM
--- Server version: 5.7.25
+-- Generation Time: May 07, 2019 at 04:22 PM
+-- Server version: 5.7.26
 -- PHP Version: 7.2.7
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
@@ -32,24 +32,19 @@ CREATE TABLE `Customers` (
   `Username` varchar(24) NOT NULL,
   `Name` varchar(24) NOT NULL,
   `Email` varchar(320) NOT NULL,
-  `Address` varchar(50) NOT NULL,
-  `BirthDate` date NOT NULL,
-  `Password` varchar(255) NOT NULL
+  `Password` varchar(255) NOT NULL,
+  `StreetNumber` int(11) NOT NULL,
+  `StreetName` varchar(30) NOT NULL,
+  `City` varchar(25) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `Customers`
 --
 
-INSERT INTO `Customers` (`Username`, `Name`, `Email`, `Address`, `BirthDate`, `Password`) VALUES
-('winger', 'Matthew Wing', 'wingm1@montclair.edu', '45 Awesome Avenue', '2019-04-16', '123'),
-('asd', 'dsa', 'dsadsa@gmail.com', 'fdsfds', '2019-04-03', 'asd'),
-('robo', 'robert', 'robo@gmail.com', 'fda', '2019-04-01', '123'),
-('bob', 'bob', 'bob@gmail.com', 'asdf', '2019-04-09', '123'),
-('fdsa', 'fdsa', 'fds@gmail.com', 'gfdsgdsh', '2019-04-02', 'fdsa'),
-('buddy', 'Lisa Chueh', 'lisa@gmail.com', '30 Ryerson Road', '2000-04-19', 'willy'),
-('qwe', 'qwe', 'qwe@gmail.com', 'qwe', '2019-04-03', 'qwe'),
-('tonda', 'David', 'tonda@gmail.com', 'tonda street', '1998-07-28', '123');
+INSERT INTO `Customers` (`Username`, `Name`, `Email`, `Password`, `StreetNumber`, `StreetName`, `City`) VALUES
+('tonda', 'David Tonda', 'tonda@gmail.com', '$2y$10$QbQZLryCRu8T9q3kXd7JweuaehD/whKa1PgSN.VD1sgwmXDu/96ke', 12, 'Walter', 'Milburn'),
+('philips', 'Shijil', 'philip@gmail.com', '$2y$10$cPzQgTHWRCdQLL2ZuWNTmOc54aUThgexzqOsx7EFYKkRRq.B6R8xi', 45, 'Driver', 'Forest');
 
 -- --------------------------------------------------------
 
@@ -58,24 +53,16 @@ INSERT INTO `Customers` (`Username`, `Name`, `Email`, `Address`, `BirthDate`, `P
 --
 
 CREATE TABLE `EMPLOYEE` (
-  `EmpID` int(4) NOT NULL,
+  `EmpID` varchar(255) NOT NULL,
   `Password` varchar(50) NOT NULL,
   `Name` varchar(24) NOT NULL,
   `Hourly_Pay` double NOT NULL,
-  `SSN` varchar(9) NOT NULL,
-  `Address` varchar(50) NOT NULL,
-  `BirthDate` date NOT NULL,
-  `StartDate` date NOT NULL,
-  `SupervisorID` varchar(9) DEFAULT NULL,
-  `UserType` varchar(1) NOT NULL
+  `SupervisorID` varchar(255) DEFAULT NULL,
+  `UserType` varchar(1) NOT NULL,
+  `Street Number` int(11) NOT NULL,
+  `Street Name` varchar(30) NOT NULL,
+  `City` varchar(25) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `EMPLOYEE`
---
-
-INSERT INTO `EMPLOYEE` (`EmpID`, `Password`, `Name`, `Hourly_Pay`, `SSN`, `Address`, `BirthDate`, `StartDate`, `SupervisorID`, `UserType`) VALUES
-(987, '123', 'Matthew Wing', 12.5, '123456789', '48 Awesome Avenue', '2019-04-01', '2019-04-02', '987654321', 'E');
 
 -- --------------------------------------------------------
 
@@ -84,10 +71,20 @@ INSERT INTO `EMPLOYEE` (`EmpID`, `Password`, `Name`, `Hourly_Pay`, `SSN`, `Addre
 --
 
 CREATE TABLE `EmployeeSchedule` (
-  `SSN` char(9) NOT NULL,
-  `dateOfBeginnningWeek` date NOT NULL,
-  `numDaysWork` char(7) DEFAULT NULL
+  `EmpID` varchar(255) CHARACTER SET latin1 COLLATE latin1_general_cs NOT NULL,
+  `Date` date NOT NULL,
+  `startShift` time NOT NULL,
+  `endShift` time NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `EmployeeSchedule`
+--
+
+INSERT INTO `EmployeeSchedule` (`EmpID`, `Date`, `startShift`, `endShift`) VALUES
+('987', '2019-05-15', '07:32:00', '20:00:00'),
+('987', '2019-05-16', '07:00:00', '21:00:00'),
+('988', '2019-06-21', '07:30:00', '17:39:00');
 
 -- --------------------------------------------------------
 
@@ -97,21 +94,17 @@ CREATE TABLE `EmployeeSchedule` (
 
 CREATE TABLE `Receipts` (
   `CustomerName` varchar(24) NOT NULL,
-  `Address` varchar(50) NOT NULL,
+  `Street Number` int(11) NOT NULL,
+  `Street Name` varchar(30) NOT NULL,
+  `City` varchar(25) NOT NULL,
   `TotalPrice` double NOT NULL,
   `SneakerName` varchar(30) NOT NULL,
   `NumberOfSneakersBought` int(11) NOT NULL,
   `DateofPurchase` date NOT NULL,
   `ReceiptID` int(11) NOT NULL,
-  `Username` varchar(50) NOT NULL
+  `Username` varchar(50) NOT NULL,
+  `image` blob NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `Receipts`
---
-
-INSERT INTO `Receipts` (`CustomerName`, `Address`, `TotalPrice`, `SneakerName`, `NumberOfSneakersBought`, `DateofPurchase`, `ReceiptID`, `Username`) VALUES
-('Alex ', 'alex house', 150, 'Adidas Wave', 1, '2019-04-01', 1, 'espoAlex');
 
 -- --------------------------------------------------------
 
@@ -135,7 +128,7 @@ CREATE TABLE `Sneaker_Type` (
 --
 
 CREATE TABLE `userLogin` (
-  `Username` varchar(24) NOT NULL,
+  `Username` varchar(24) CHARACTER SET latin1 COLLATE latin1_general_cs NOT NULL,
   `Password` varchar(100) NOT NULL,
   `UserType` varchar(1) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
@@ -145,37 +138,8 @@ CREATE TABLE `userLogin` (
 --
 
 INSERT INTO `userLogin` (`Username`, `Password`, `UserType`) VALUES
-('buddy', 'willy', 'C'),
-('robo', '123', 'C'),
-('bob', '123', 'C'),
-('fdsa', 'fdsa', 'C'),
-('qwe', 'qwe', 'C'),
-('asd', 'asd', 'C'),
-('tonda', '123', 'C');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `viewCustomerReceipts`
---
-
-CREATE TABLE `viewCustomerReceipts` (
-  `SneakerName` varchar(50) NOT NULL,
-  `Username` varchar(24) NOT NULL,
-  `CustomerName` varchar(24) NOT NULL,
-  `TotalPrice` double NOT NULL,
-  `NumberOfSneakersBought` int(11) NOT NULL,
-  `Address` varchar(50) NOT NULL,
-  `Date` date NOT NULL,
-  `ReceiptID` int(11) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `viewCustomerReceipts`
---
-
-INSERT INTO `viewCustomerReceipts` (`SneakerName`, `Username`, `CustomerName`, `TotalPrice`, `NumberOfSneakersBought`, `Address`, `Date`, `ReceiptID`) VALUES
-('Adidas Wave', 'espo', 'Alex', 150, 1, 'alex house', '2019-04-01', 1);
+('philips', '$2y$10$cPzQgTHWRCdQLL2ZuWNTmOc54aUThgexzqOsx7EFYKkRRq.B6R8xi', 'A'),
+('tonda', '$2y$10$QbQZLryCRu8T9q3kXd7JweuaehD/whKa1PgSN.VD1sgwmXDu/96ke', 'C');
 
 --
 -- Indexes for dumped tables
@@ -191,14 +155,14 @@ ALTER TABLE `Customers`
 -- Indexes for table `EMPLOYEE`
 --
 ALTER TABLE `EMPLOYEE`
-  ADD PRIMARY KEY (`SSN`),
+  ADD PRIMARY KEY (`EmpID`),
   ADD KEY `SupervisorID` (`SupervisorID`);
 
 --
 -- Indexes for table `EmployeeSchedule`
 --
 ALTER TABLE `EmployeeSchedule`
-  ADD KEY `SSN` (`SSN`);
+  ADD KEY `SSN` (`EmpID`);
 
 --
 -- Indexes for table `Receipts`
@@ -218,13 +182,6 @@ ALTER TABLE `Sneaker_Type`
 --
 ALTER TABLE `userLogin`
   ADD PRIMARY KEY (`Username`);
-
---
--- Indexes for table `viewCustomerReceipts`
---
-ALTER TABLE `viewCustomerReceipts`
-  ADD KEY `ReceiptID` (`ReceiptID`),
-  ADD KEY `Username` (`Username`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
