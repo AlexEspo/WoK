@@ -1,5 +1,5 @@
 <?php 
-	include("../../Downloads/ecommerce-2/admin_area/includes/db.php"); 
+	include("../../Downloads/ecommerce-2/admin_area copy/includes/db.php"); 
 	
 	if(isset($_GET['delete_brand'])){
 	

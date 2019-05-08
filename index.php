@@ -21,7 +21,7 @@ if(!isset($_SESSION['user_email'])){
 
 	<div class="main_wrapper">
 	  <div id="right">
-		<h2 style="text-align:center;">Manage Content</h2>
+		<h2 style="text-align:center;"> Admin Manage</h2>
 			
 			<a href="insert_product.php">Insert New Product</a>
 			<a href="view_products.php">View All Products</a>
@@ -31,8 +31,6 @@ if(!isset($_SESSION['user_email'])){
 			<a href="view_brands.php">View All Brands</a>
 			<a href="view_customers.php">View Customers</a>
 			<a href="view_orders.php">View Orders</a>
-			<a href="view_payments.php">View Payments</a>
-			<a href="logout.php">Admin Logout</a>
 		
 		</div>
 		
@@ -41,56 +39,56 @@ if(!isset($_SESSION['user_email'])){
 		<?php 
 			if(isset($_GET['insert_product'])){
 
-				include("../../Downloads/ecommerce-2/admin_area/insert_product.php"); 
+				include("../../Downloads/ecommerce-2/admin_area copy/insert_product.php"); 
 
 			}
 			if(isset($_GET['view_products'])){
 
-				include("../../Downloads/ecommerce-2/admin_area/view_products.php"); 
+				include("../../Downloads/ecommerce-2/admin_area copy/view_products.php"); 
 
 			}
 			if(isset($_GET['edit_pro'])){
 
-				include("../../Downloads/ecommerce-2/admin_area/edit_pro.php"); 
+				include("../../Downloads/ecommerce-2/admin_area copy/edit_pro.php"); 
 
 			}
 			if(isset($_GET['insert_cat'])){
 
-				include("../../Downloads/ecommerce-2/admin_area/insert_cat.php"); 
+				include("../../Downloads/ecommerce-2/admin_area copy/insert_cat.php"); 
 
 			}
 
 			if(isset($_GET['view_cats'])){
 
-				include("../../Downloads/ecommerce-2/admin_area/view_cats.php"); 
+				include("../../Downloads/ecommerce-2/admin_area copy/view_cats.php"); 
 
 			}
 
 			if(isset($_GET['edit_cat'])){
 
-				include("../../Downloads/ecommerce-2/admin_area/edit_cat.php"); 
+				include("../../Downloads/ecommerce-2/admin_area copy/edit_cat.php"); 
 
 			}
 
 			if(isset($_GET['insert_brand'])){
 
-				include("../../Downloads/ecommerce-2/admin_area/insert_brand.php"); 
+				include("../../Downloads/ecommerce-2/admin_area copy/insert_brand.php"); 
 
 			}
 
 			if(isset($_GET['view_brands'])){
 
-				include("../../Downloads/ecommerce-2/admin_area/view_brands.php"); 
+				include("../../Downloads/ecommerce-2/admin_area copy/view_brands.php"); 
 
 			}
 			if(isset($_GET['edit_brand'])){
 
-				include("../../Downloads/ecommerce-2/admin_area/edit_brand.php"); 
+				include("../../Downloads/ecommerce-2/admin_area copy/edit_brand.php"); 
 
 			}
 			if(isset($_GET['view_customers'])){
 
-				include("../../Downloads/ecommerce-2/admin_area/view_customers.php"); 
+				include("../../Downloads/ecommerce-2/admin_area copy/view_customers.php"); 
 
 			}
 		

@@ -1,5 +1,5 @@
 
-<table width="795" align="center" bgcolor="pink"> 
+<table width="795" align="center" bgcolor="white"> 
 
 	
 	<tr align="center">
@@ -31,8 +31,8 @@
 	<tr align="center">
 		<td><?php echo $i;?></td>
 		<td><?php echo $cat_title;?></td>
-		<td><a href="../../Downloads/ecommerce-2/admin_area/index.php?edit_cat=<?php echo $cat_id; ?>">Edit</a></td>
-		<td><a href="../../Downloads/ecommerce-2/admin_area/delete_cat.php?delete_cat=<?php echo $cat_id;?>">Delete</a></td>
+		<td><a href="../../Downloads/ecommerce-2/admin_area copy/index.php?edit_cat=<?php echo $cat_id; ?>">Edit</a></td>
+		<td><a href="../../Downloads/ecommerce-2/admin_area copy/delete_cat.php?delete_cat=<?php echo $cat_id;?>">Delete</a></td>
 	
 	</tr>
 	<?php } ?>

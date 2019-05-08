@@ -6,7 +6,7 @@ if(!isset($_SESSION['user_email'])){
 else {
 
 ?>
-<table width="795" align="center" bgcolor="pink"> 
+<table width="795" align="center" bgcolor="white"> 
 
 	
 	<tr align="center">
@@ -44,8 +44,8 @@ else {
 		<td><?php echo $pro_title;?></td>
 		<td><img src="product_images/<?php echo $pro_image;?>" width="60" height="60"/></td>
 		<td><?php echo $pro_price;?></td>
-		<td><a href="../../Downloads/ecommerce-2/admin_area/index.php?edit_pro=<?php echo $pro_id; ?>">Edit</a></td>
-		<td><a href="../../Downloads/ecommerce-2/admin_area/delete_pro.php?delete_pro=<?php echo $pro_id;?>">Delete</a></td>
+		<td><a href="../../Downloads/ecommerce-2/admin_area copy/index.php?edit_pro=<?php echo $pro_id; ?>">Edit</a></td>
+		<td><a href="../../Downloads/ecommerce-2/admin_area copy/delete_pro.php?delete_pro=<?php echo $pro_id;?>">Delete</a></td>
 	
 	</tr>
 	<?php } ?>
