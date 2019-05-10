@@ -22,7 +22,7 @@
               font-weight: normal;
             }
             .receiptContainer{
-                border: 2px dashed black;
+                border: 2px solid black;
                 width: 50%;
                 margin: 0;
                 display:inline-block;
@@ -40,8 +40,8 @@
             printf("Connect failed: %s\n", mysqli_connect_error());
             exit();
         }
-        $sql = $link->prepare("SELECT Date, startShift, endShift, EMPLOYEE.Hourly_Pay, EMPLOYEE.EmpID, EMPLOYEE.Name FROM EmployeeSchedule INNER JOIN EMPLOYEE ON ? = EMPLOYEE.SSN ORDER BY EmployeeSchedule.Date DESC" );
-        $sql->bind_param('s', $_SESSION['SSN']);
+        $sql = $link->prepare("SELECT Date, startShift, endShift, EMPLOYEE.Hourly_Pay, EMPLOYEE.EmpID, EMPLOYEE.Name FROM EmployeeSchedule INNER JOIN EMPLOYEE ON ? = EMPLOYEE.EmpID WHERE EmployeeSchedule.EmpID = ? ORDER BY EmployeeSchedule.Date DESC" );
+        $sql->bind_param('ss', $_SESSION['user'], $_SESSION['user']);
         $sql->execute();
         $result = $sql->get_result();
         if(mysqli_num_rows($result) == 0){

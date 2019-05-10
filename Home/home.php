@@ -24,29 +24,26 @@
 <div class="card-deck">
 
 <div class="h-50 card" style="width: auto;">
-  <img class="card-img-top" src="..." alt="Card image cap">
+  <img class="card-img-top" src="../pics/nike2.jpg" alt="Card image cap">
   <div class="card-body">
     <h5 class="card-title">Nike</h5>
     <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    <a href="#" class="btn btn-primary">Shop Nike</a>
   </div>
 </div>
 
 <div class="h-50 card" style="width: auto;">
-  <img class="card-img-top" src="..." alt="Card image cap">
+  <img class="card-img-top" src="../pics/adidas1.jpg" alt="Card image cap">
   <div class="card-body">
     <h5 class="card-title">Adidas</h5>
     <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    <a href="#" class="btn btn-primary">Shop Adidas</a>
   </div>
 </div>
 
 <div class="h-50 card" style="width: auto;">
-  <img class="card-img-top" src="..." alt="Card image cap">
+  <img class="card-img-top" src="../pics/timb1.jpg" alt="Card image cap">
   <div class="card-body">
-    <h5 class="card-title">Jordan</h5>
+    <h5 class="card-title">Timberlands</h5>
     <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    <a href="#" class="btn btn-primary">Shop Jordan</a>
   </div>
 </div>
 

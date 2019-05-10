@@ -21,7 +21,7 @@
     
     <body>
     <form action = "insertHoursEmployees.php" method = "POST">
-        <input type = "number" placeholder = "Employee SSN" id = "empSSN" name ="SSN">
+        <input type = "text" placeholder = "Employee ID" id = "EmpID" name ="EmpID">
         <input type = "date" id = "date" name = "date">
         <input type = "time" id = "startShift" placeholder = "Start Shift Time" name = "startShift">
         <input type = "time" id = "endShift" placeholder = "End Shift Time" name = "endShift">

@@ -10,14 +10,14 @@
 
 <body>
 <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e3f2fd;">
-  <a class="navbar-brand" href="#">WoK</a>
+  <a class="navbar-brand" href="../Home/home.php">WoK</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
     <div class="navbar-nav">
       <a class="nav-item nav-link" href="../Home/home.php">Home <span class="sr-only">(current)</span></a>
-      <a class="nav-item nav-link" href="#">Kicks</a>
+      <a class="nav-item nav-link" href="../Products/products.php">Kicks</a>
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Account
@@ -32,10 +32,10 @@
           Admin
         </a>   
         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            <a class="dropdown-item" id = "admin" href="#">Add/Delete/Modify products</a>
+            <a class="dropdown-item" id = "admin" href="../AddDeleteProducts/insert_productForm.php">Add/Delete/Modify products</a>
             <a class="dropdown-item" id = "admin" href="../Schedule/Schedule.php">View employee schedule</a>
             <a class="dropdown-item" id = "admin" href="../Schedule/makeEmployeeSchedule.php">Modify employee schedule</a> 
-            <a class="dropdown-item" id = "admin" href="#">Add/Remove employees</a> 
+            <a class="dropdown-item" id = "admin" href="../AddDeleteEmployee/ademployeeform.php">Add/Remove employees</a> 
           </div>
       </li>
     </div>

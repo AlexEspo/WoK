@@ -18,14 +18,6 @@
     $result = $sql->get_result();
     $row=mysqli_fetch_assoc($result);
     $_SESSION['access'] = $row['UserType'];
-    if($_SESSION['access'] == "E" || $_SESSION['access'] == "A" || $_SESSION['access'] == "M"){
-        $sqlGetSSN = $link->prepare("SELECT SSN FROM EMPLOYEE WHERE EmpID = ?");
-        $sqlGetSSN->bind_param('s', $user);
-        $sqlGetSSN->execute();
-        $result = $sqlGetSSN->get_result();
-        $row2=mysqli_fetch_assoc($result);
-        $_SESSION['SSN'] = $row2['SSN'];
-    }
     $auth = password_verify($password, $row['Password']);
     if($auth){
         // header("Location: ../Home/home.php");

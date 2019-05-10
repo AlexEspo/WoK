@@ -18,7 +18,7 @@
     $result = $sql->get_result();
     // $result = mysqli_query($link,$sql);
     if(mysqli_num_rows($result) == 0){
-        echo "<h3>It seems that you did not buy anything this day</h3>";
+        echo "<h3>It seems that you did not buy anything yet</h3>";
     }else{
         while($arrayOfReceipts=mysqli_fetch_assoc($result)){
         echo 

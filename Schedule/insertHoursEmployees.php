@@ -5,7 +5,7 @@
     $local = "localhost";
     $dbuser = "wingmat_Matt";
     $dbpass = "Matthewwing98";
-    $SSN = $_POST['SSN'];
+    $EmpID = $_POST['EmpID'];
     $date = $_POST['date'];
     $startShift = $_POST['startShift'];
     $endShift = $_POST['endShift'];
@@ -18,11 +18,11 @@
     $newDate = date("Y-m-d", strtotime($date));
     $startShiftFormatted = date("H:i:s", strtotime($startShift));
     $endShiftFormatted = date("H:i:s", strtotime($endShift));
-    $sql = $link->prepare("INSERT INTO EmployeeSchedule(SSN, Date, startShift, endShift) VALUES(?, ?, ?, ?)");
-    $sql->bind_param("ssss", $SSN, $newDate, $startShiftFormatted, $endShiftFormatted);
+    $sql = $link->prepare("INSERT INTO EmployeeSchedule(EmpID, Date, startShift, endShift) VALUES(?, ?, ?, ?)");
+    $sql->bind_param("ssss", $EmpID, $newDate, $startShiftFormatted, $endShiftFormatted);
     $sql->execute();
     echo "<script type = 'text/javascript'>
                 alert('You have successfully inserted hours');
-                window.location.href = 'Schedule.php';
+                window.location.href = 'makeEmployeeSchedule.php';
             </script>";
 ?>
