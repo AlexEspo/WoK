@@ -82,6 +82,7 @@
     <label for = "email">Email address:</label><br>
     <input type = "email" placeholder="Email" name = "email" id = "email" required>
     <p></p><p></p>
+    <input onclick = "checkAfterSubmit()" class = "btn btn-primary" type = "submit" value = "Register">
     </div>
     <div class="col-auto"style = "float: none; margin: 0 auto;"><br><br><br>
     <label for="password">Password:</label><br>
@@ -90,21 +91,19 @@
     <span id='message'></span>
     <br>
     <br>
-    <label>Birthdate:</label>
-    <br>
-    <input type ="date" name = "dob" required>
     <br>
     <p></p>
     <label for = "address">Address:</label>
     <br>
-    <input type = "text" placeholder="Address" name = "Address" required>
+    <input type = "number" placeholder="Street Number" name = "StreetNumber" required>
+    <input type = "text" placeholder="Street Name" name = "StreetName" required>
+    <input type = "text" placeholder="City" name = "City" required>
     <br>
     <p></p>
     <br>
      <span id = 'errorLogin'></span>
     </div>
   </div>
-  <input onclick = "checkAfterSubmit()" class = "btn btn-primary" type = "submit" value = "Register">
 </div>
 
 </form>

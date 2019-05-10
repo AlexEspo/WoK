@@ -8,38 +8,43 @@ $user = $_POST["username"];
 $password = $_POST["password"];
 $name = $_POST["Name"];
 $email = $_POST["email"];
-$address = $_POST["Address"];
-$dob = $_POST["dob"];
+$streetNum = $_POST['StreetNumber'];
+$streetName = $_POST['StreetName'];
+$City = $_POST['City'];
 $_SESSION['user'] = $_POST['username'];
 $link = new mysqli($local, $dbuser, $dbpass, $db);
 if (mysqli_connect_errno()) {
     printf("Connect failed: %s\n", mysqli_connect_error());
     exit();
 }
-$sql_username = ("SELECT * FROM Customers WHERE Username = '{$user}'");
-$result_username = mysqli_query($link, $sql_username);
-if(mysqli_num_rows($result_username) > 0){
+$sql_username = $link->prepare("SELECT Username FROM Customers WHERE Username = ?");
+$sql_username->bind_param('s',$user);
+$result = $sql_username->execute();
+echo $result['Username'];
+if($result['Username'] == $user){
     echo "<script type = 'text/javascript'>
             alert('Username has been taken');
             window.location.href = 'index.php';
         </script>";
 }
 else{
+        $sql_username->close();
         $hashPass = password_hash($password, PASSWORD_DEFAULT);
-        $newDate = date("Y-m-d", strtotime($dob));
-        $sql = $link->prepare("INSERT INTO Customers(Username, Name, Email, Address, BirthDate, Password) VALUES (?, ?, ?, ?, ?, ?)");
-        $sql->bind_param('ssssss', $user, $name, $email, $address, $newDate, $hashPass);
-        $sqlRegisterUser = $link->prepare("INSERT INTO userLogin(Username, Password, UserType) VALUES (?, ?, 'A')");
+        $sql = "INSERT INTO Customers(Username, Name, Email, Password, StreetNumber, StreetName, City) VALUES (?, ?, ?, ?, ?, ?, ?)";
+        $query = $link->prepare($sql);
+        $query->bind_param("ssssiss", $user, $name, $email, $hashPass, $streetNum, $streetName, $City );
+        $sqlRegisterUser = $link->prepare("INSERT INTO userLogin(Username, Password, UserType) VALUES (?, ?, 'C')");
         $sqlRegisterUser->bind_param("ss", $user, $hashPass);
-        
-        if($sql->execute() > 0){
-            if($sqlRegisterUser->execute() > 0){
+        if($query->execute()){
+            if($sqlRegisterUser->execute()){
                 header("Location: Login/loginForm.php");
             }else{
                 echo "<script type = 'text/javascript'>
                         alert('Something went wrong');
                         window.location.href = 'index.php';
                     </script>";
+                    $query->close();
+                    $sqlRegisterUser->close();
             }
         }else{
             echo "<script type = 'text/javascript'>
@@ -49,5 +54,6 @@ else{
         }
 }
 //Make validation for password 
+$sql_username->close();
 $link->close();
 ?>
