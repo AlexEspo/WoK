@@ -1,11 +1,11 @@
 $(document).ready(function(){
-  $("#check").click(function(){
+  $("#search").keyup(function(){
         $.ajax({
             type: "POST",
-            url: '../AddDeleteProducts/checkProduct.php',
-            data: {'productID': $("#product_ID").val()},
+            url: '../Products/searchProducts.php',
+            data: {'search': $("#search").val()},
             success: function(data){
-                $("#checkproduct").html(data);
+                $("#Results").html(data);
             },
             error: function(xhr, desc, err) {
                 console.log(xhr);
