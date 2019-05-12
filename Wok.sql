@@ -113,49 +113,52 @@ CREATE TABLE `receipts` (
 --
 
 CREATE TABLE `sneaker_type` (
+  `id` INT(11) NOT NULL AUTO_INCREMENT,
   `Price` double NOT NULL,
   `Color` varchar(10) NOT NULL,
   `SneakerName` varchar(30) NOT NULL,
   `Size` double NOT NULL,
   `Quantity` int(11) NOT NULL,
-  `image_path` text NOT NULL
+  `image_path` text NOT NULL,
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `sneaker_type`
 --
 
-INSERT INTO `sneaker_type` (`Price`, `Color`, `SneakerName`, `Size`, `Quantity`, `image_path`) VALUES
-(200, 'Black', 'Nike Air Max Torch 4', 9, 20, 'nike1.jpg'),
-(200, 'White', 'Nike Air Max LTD 3', 11, 20, 'nike4.jpg'),
-(200, 'Grey', 'Nike Free Run 2018', 11.5, 20, 'nike5.jpg'),
-(150, 'Dark Grey', 'Adidas Swift Run', 10, 20, 'adidas1.jpg'),
-(150, 'Brown', 'Adidas Swift Run ', 10.5, 20, 'adidas2.jpg'),
-(150, 'Black', 'Adidas Swift Run', 9, 20, 'adidas3.jpg'),
-(150, 'Multi', 'Adidas Terrex Two Trail', 10, 20, 'adidas4.jpg'),
-(150, 'Grey', 'Adidas Swift Run', 11, 20, 'adidas5.jpg'),
-(100, 'Black', 'Puma Super Levitate', 9, 20, 'puma1.jpg'),
-(100, 'White', 'Puma Super Levitate', 9.5, 20, 'puma2.jpg'),
-(100, 'Grey', 'Puma Enzo Knit NM', 12, 20, 'puma3.jpg'),
-(100, 'Red', 'Puma Enzo Lean Training', 9.5, 20, 'puma4.jpg'),
-(100, 'Grey', 'Puma Axelion ', 10.5, 20, 'puma5.jpg'),
-(75, 'Grey', 'Converse Chuck Taylor All Star', 9.5, 20, 'converse1.jpg'),
-(75, 'Camo', 'Converse Chuck Taylor All Star', 8.5, 20, 'converse2.jpg'),
-(75, 'Red Camo', 'Converse Chuck Taylor All Star', 10, 20, 'converse3.jpg'),
-(75, 'White', 'Converse Chuck Taylor All Star', 10, 20, 'converse5.jpg'),
-(75, 'Black', 'Converse Chuck Taylor Hi Top', 9.5, 20, 'converse4.jpg'),
-(50, 'Multi', 'Vans Checkerboard Slip-On', 9, 20, 'vans1.png'),
-(50, 'White', 'Vans Authentic', 8, 20, 'vans2.png'),
-(50, 'Checkered', 'Vans Primary Check Era', 9.5, 20, 'vans3.png'),
-(50, 'Black', 'Vans Berle Pro', 9, 20, 'vans4.png'),
-(50, 'Black', 'Vans Coral Snake Kyle Walker', 10, 20, 'vans5.png'),
-(225, 'Tan', 'Timberland Premium Boots', 9, 20, 'timb1.jpg'),
-(225, 'Brown', 'Timberland Maddsen Hiking Boot', 10, 20, 'timb2.jpg'),
-(225, 'Black', 'Timberland Field Boots', 10.5, 20, 'timb3.jpg'),
-(225, 'Brown', 'Timberland FlyRoam Trail Hiker', 10, 20, 'timb4.jpg'),
-(225, 'Green', 'Timberland Jacquard Boots', 11, 20, 'timb5.jpg'),
-(200, 'Grey', 'Nike Air Ring Leader Low', 10, 20, 'nike2.jpg'),
-(200, 'Black', 'Nike Shox NZ', 9.5, 20, 'nike3.jpg');
+INSERT INTO `sneaker_type` (`id`, `Price`, `Color`, `SneakerName`, `Size`, `Quantity`, `image_path`) VALUES
+(1, 200, 'Black', 'Nike Air Max Torch 4', 9, 20, 'nike1.jpg'),
+(2, 200, 'Grey', 'Nike Air Ring Leader Low', 10, 20, 'nike2.jpg'),
+(3, 200, 'Black', 'Nike Shox NZ', 9.5, 20, 'nike3.jpg');
+(4, 200, 'White', 'Nike Air Max LTD 3', 11, 20, 'nike4.jpg'),
+(5, 200, 'Grey', 'Nike Free Run 2018', 11.5, 20, 'nike5.jpg'),
+(6, 150, 'Dark Grey', 'Adidas Swift Run', 10, 20, 'adidas1.jpg'),
+(7, 150, 'Brown', 'Adidas Swift Run ', 10.5, 20, 'adidas2.jpg'),
+(8, 150, 'Black', 'Adidas Swift Run', 9, 20, 'adidas3.jpg'),
+(9, 150, 'Multi', 'Adidas Terrex Two Trail', 10, 20, 'adidas4.jpg'),
+(10, 150, 'Grey', 'Adidas Swift Run', 11, 20, 'adidas5.jpg'),
+(11, 100, 'Black', 'Puma Super Levitate', 9, 20, 'puma1.jpg'),
+(12, 100, 'White', 'Puma Super Levitate', 9.5, 20, 'puma2.jpg'),
+(13, 100, 'Grey', 'Puma Enzo Knit NM', 12, 20, 'puma3.jpg'),
+(14, 100, 'Red', 'Puma Enzo Lean Training', 9.5, 20, 'puma4.jpg'),
+(15, 100, 'Grey', 'Puma Axelion ', 10.5, 20, 'puma5.jpg'),
+(16, 75, 'Grey', 'Converse Chuck Taylor All Star', 9.5, 20, 'converse1.jpg'),
+(17, 75, 'Camo', 'Converse Chuck Taylor All Star', 8.5, 20, 'converse2.jpg'),
+(18, 75, 'Red Camo', 'Converse Chuck Taylor All Star', 10, 20, 'converse3.jpg'),
+(19, 75, 'White', 'Converse Chuck Taylor All Star', 10, 20, 'converse5.jpg'),
+(20, 75, 'Black', 'Converse Chuck Taylor Hi Top', 9.5, 20, 'converse4.jpg'),
+(21, 50, 'Multi', 'Vans Checkerboard Slip-On', 9, 20, 'vans1.png'),
+(22, 50, 'White', 'Vans Authentic', 8, 20, 'vans2.png'),
+(23, 50, 'Checkered', 'Vans Primary Check Era', 9.5, 20, 'vans3.png'),
+(24, 50, 'Black', 'Vans Berle Pro', 9, 20, 'vans4.png'),
+(25, 50, 'Black', 'Vans Coral Snake Kyle Walker', 10, 20, 'vans5.png'),
+(26, 225, 'Tan', 'Timberland Premium Boots', 9, 20, 'timb1.jpg'),
+(27, 225, 'Brown', 'Timberland Maddsen Hiking Boot', 10, 20, 'timb2.jpg'),
+(28, 225, 'Black', 'Timberland Field Boots', 10.5, 20, 'timb3.jpg'),
+(29, 225, 'Brown', 'Timberland FlyRoam Trail Hiker', 10, 20, 'timb4.jpg'),
+(30, 225, 'Green', 'Timberland Jacquard Boots', 11, 20, 'timb5.jpg'),
+
 
 -- --------------------------------------------------------
 
@@ -210,8 +213,6 @@ ALTER TABLE `receipts`
 --
 -- Indexes for table `sneaker_type`
 --
-ALTER TABLE `sneaker_type`
-  ADD PRIMARY KEY (`Color`,`SneakerName`,`Size`);
 
 --
 -- Indexes for table `userlogin`

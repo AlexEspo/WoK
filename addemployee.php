@@ -1,5 +1,4 @@
 <?php
-// error_reporting (E_ALL ^ E_NOTICE);
 $db = "wok";
 $local = "localhost";
 $dbuser = "alexespo";
