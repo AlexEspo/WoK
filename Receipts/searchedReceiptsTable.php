@@ -61,8 +61,16 @@
                         <td>" . $arrayOfReceipts['NumberOfSneakersBought'] ."</td>
                     </tr>
                     <tr>
-                        <th>Address</th>
-                        <td>" . $arrayOfReceipts['Address'] . "</td>
+                        <th>Street Number</th>
+                        <td>" . $arrayOfReceipts['StreetNumber'] . "</td>
+                    </tr>
+                    <tr>
+                        <th>Street Name</th>
+                        <td>" . $arrayOfReceipts['StreetName'] . "</td>
+                    </tr>
+                    <tr>
+                        <th>City</th>
+                        <td>" . $arrayOfReceipts['City'] . "</td>
                     </tr>
                     <tr>
                         <th>Date</th>
@@ -75,6 +83,9 @@
                     <tr>
                         <th>Total Price</th>
                         <td><strong>" . $arrayOfReceipts['TotalPrice'] . "</strong></td>
+                    </tr>
+                    <tr>
+                        <td><img class='card-img-top' src= ../pics/" . $arrayOfReceipts['image_path'] . " alt='Card image cap' style = 'height: 15rem; width: 17rem;'></td>
                     </tr>
                     </table></div>";
                 }

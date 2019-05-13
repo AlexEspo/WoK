@@ -36,11 +36,11 @@ if($result['EmpID'] == $emp){
 }
 else{
         $hashPass = password_hash($password, PASSWORD_DEFAULT);
-        $sql = "INSERT INTO EMPLOYEE(EmpID, Password, Name, Hourly_Pay, SupervisorID, UserType, StreetNumber, StreetName, City) VALUES (?, ?, ?, ?, ?, 'A', ?, ?, ?)";
+        $sql = "INSERT INTO EMPLOYEE(EmpID, Password, Name, Hourly_Pay, SupervisorID, UserType, StreetNumber, StreetName, City) VALUES (?, ?, ?, ?, ?, 'E', ?, ?, ?)";
         $queryEmployee = $link->prepare($sql);
         echo $link->error;
         $queryEmployee->bind_param('sssdsiss', $emp, $hashPass, $name, $pay, $superid, $StreetNum, $StreetName, $City);
-        $sqlRegisterEmp = "INSERT INTO userLogin(Username, Password, UserType) VALUES (?, ?, 'A')";
+        $sqlRegisterEmp = "INSERT INTO userLogin(Username, Password, UserType) VALUES (?, ?, 'E')";
         $queryuserLogin = $link->prepare($sqlRegisterEmp);
         $queryuserLogin->bind_param('ss', $emp, $hashPass);
         if($queryEmployee->execute() > 0){

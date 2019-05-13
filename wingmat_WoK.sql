@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: May 10, 2019 at 06:14 PM
+-- Generation Time: May 13, 2019 at 02:08 AM
 -- Server version: 5.7.26
 -- PHP Version: 7.2.7
 
@@ -85,6 +85,13 @@ CREATE TABLE `EmployeeSchedule` (
   `endShift` time NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `EmployeeSchedule`
+--
+
+INSERT INTO `EmployeeSchedule` (`EmpID`, `Date`, `startShift`, `endShift`) VALUES
+('testEmployee', '2019-05-15', '07:30:00', '15:30:00');
+
 -- --------------------------------------------------------
 
 --
@@ -93,8 +100,8 @@ CREATE TABLE `EmployeeSchedule` (
 
 CREATE TABLE `Receipts` (
   `CustomerName` varchar(24) NOT NULL,
-  `Street Number` int(11) NOT NULL,
-  `Street Name` varchar(30) NOT NULL,
+  `StreetNumber` int(11) NOT NULL,
+  `StreetName` varchar(30) NOT NULL,
   `City` varchar(25) NOT NULL,
   `TotalPrice` double NOT NULL,
   `SneakerName` varchar(30) NOT NULL,
@@ -104,6 +111,20 @@ CREATE TABLE `Receipts` (
   `Username` varchar(50) NOT NULL,
   `image_path` text NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `Receipts`
+--
+
+INSERT INTO `Receipts` (`CustomerName`, `StreetNumber`, `StreetName`, `City`, `TotalPrice`, `SneakerName`, `NumberOfSneakersBought`, `DateofPurchase`, `ReceiptID`, `Username`, `image_path`) VALUES
+('testCustomer', 19, 'Grover Road', 'Manville', 225, 'Timberland Premium Boots', 1, '2019-05-13', 8, 'testCustomer', 'timb1.jpg'),
+('testCustomer', 19, 'Grover Road', 'Manville', 225, 'Timberland Maddsen Hiking Boot', 1, '2019-05-13', 7, 'testCustomer', 'timb2.jpg'),
+('testCustomer', 19, 'Grover Road', 'Manville', 225, 'Timberland Jacquard Boots', 1, '2019-05-13', 6, 'testCustomer', 'timb5.jpg'),
+('testCustomer', 19, 'Grover Road', 'Manville', 225, 'Timberland Jacquard Boots', 1, '2019-05-13', 5, 'testCustomer', 'timb5.jpg'),
+('testCustomer', 19, 'Grover Road', 'Manville', 225, 'Timberland Jacquard Boots', 1, '2019-05-13', 4, 'testCustomer', 'timb5.jpg'),
+('testCustomer', 19, 'Grover Road', 'Manville', 225, 'Timberland Maddsen Hiking Boot', 1, '2019-05-13', 3, 'testCustomer', 'timb2.jpg'),
+('testCustomer', 19, 'Grover Road', 'Manville', 225, 'Timberland Maddsen Hiking Boot', 1, '2019-05-13', 2, 'testCustomer', 'timb2.jpg'),
+('testCustomer', 19, 'Grover Road', 'Manville', 225, 'Timberland Maddsen Hiking Boot', 1, '2019-05-13', 1, 'testCustomer', 'timb2.jpg');
 
 -- --------------------------------------------------------
 
@@ -127,36 +148,36 @@ CREATE TABLE `Sneaker_Type` (
 --
 
 INSERT INTO `Sneaker_Type` (`ID`, `Price`, `Color`, `SneakerName`, `Brand`, `Size`, `Quantity`, `image_path`) VALUES
-(1, 50, 'Black', 'Vans Berle Pro', 'Vans', 9, 20, 'vans4.png'),
-(2, 75, 'Black', 'Converse Chuck Taylor Hi Top', 'Converse', 9.5, 20, 'converse4.jpg'),
+(27, 225, 'Brown', 'Timberland Maddsen Hiking Boot', 'Timberlands', 10, 16, 'timb2.jpg'),
+(26, 225, 'Tan', 'Timberland Premium Boots', 'Timberlands', 9, 14, 'timb1.jpg'),
+(25, 50, 'Black', 'Vans Coral Snake Kyle Walker', 'Vans', 10, 20, 'vans5.png'),
+(24, 150, 'Dark Grey', 'Adidas Swift Run', 'Adidas', 10, 20, 'adidas1.jpg'),
+(23, 150, 'Brown', 'Adidas Swift Run ', 'Adidas', 10.5, 20, 'adidas2.jpg'),
+(22, 150, 'Black', 'Adidas Swift Run', 'Adidas', 9, 20, 'adidas3.jpg'),
+(21, 100, 'White', 'Puma Super Levitate', 'Puma', 9.5, 20, 'puma2.jpg'),
+(20, 100, 'Grey', 'Puma Enzo Knit NM', 'Puma', 12, 20, 'puma3.jpg'),
+(19, 100, 'Red', 'Puma Enzo Lean Training', 'Puma', 9.5, 20, 'puma4.jpg'),
+(18, 100, 'Grey', 'Puma Axelion ', 'Puma', 10.5, 20, 'puma5.jpg'),
+(17, 75, 'Grey', 'Converse Chuck Taylor All Star', 'Converse', 9.5, 20, 'converse1.jpg'),
+(16, 75, 'Camo', 'Converse Chuck Taylor All Star', 'Converse', 8.5, 20, 'converse2.jpg'),
+(15, 75, 'Red Camo', 'Converse Chuck Taylor All Star', 'Converse', 10, 20, 'converse3.jpg'),
+(14, 75, 'White', 'Converse Chuck Taylor All Star', 'Converse', 10, 20, 'converse5.jpg'),
+(13, 50, 'Multi', 'Vans Checkerboard Slip-On', 'Vans', 9, 20, 'vans1.png'),
+(12, 50, 'White', 'Vans Authentic', 'Vans', 8, 20, 'vans2.png'),
+(11, 50, 'Checkered', 'Vans Primary Check Era', 'Vans', 9.5, 20, 'vans3.png'),
+(10, 200, 'Black', 'Nike Air Max Torch 4', 'Nike', 9, 20, 'nike1.jpg'),
+(9, 200, 'Grey', 'Nike Air Ring Leader Low', 'Nike', 10, 20, 'nike2.jpg'),
+(8, 200, 'Black', 'Nike Shox NZ', 'Nike', 9.5, 20, 'nike3.jpg'),
+(7, 200, 'White', 'Nike Air Max LTD 3', 'Nike', 11, 20, 'nike4.jpg'),
+(6, 200, 'Grey', 'Nike Free Run 2018', 'Nike', 11.5, 20, 'nike5.jpg'),
+(5, 150, 'Multi', 'Adidas Terrex Two Trail', 'Adidas', 10, 20, 'adidas4.jpg'),
 (3, 100, 'Black', 'Puma Super Levitate', 'Puma', 9, 20, 'puma1.jpg'),
 (4, 150, 'Grey', 'Adidas Swift Run', 'Adidas', 11, 20, 'adidas5.jpg'),
-(5, 150, 'Multi', 'Adidas Terrex Two Trail', 'Adidas', 10, 20, 'adidas4.jpg'),
-(6, 200, 'Grey', 'Nike Free Run 2018', 'Nike', 11.5, 20, 'nike5.jpg'),
-(7, 200, 'White', 'Nike Air Max LTD 3', 'Nike', 11, 20, 'nike4.jpg'),
-(8, 200, 'Black', 'Nike Shox NZ', 'Nike', 9.5, 20, 'nike3.jpg'),
-(9, 200, 'Grey', 'Nike Air Ring Leader Low', 'Nike', 10, 20, 'nike2.jpg'),
-(10, 200, 'Black', 'Nike Air Max Torch 4', 'Nike', 9, 20, 'nike1.jpg'),
-(11, 50, 'Checkered', 'Vans Primary Check Era', 'Vans', 9.5, 20, 'vans3.png'),
-(12, 50, 'White', 'Vans Authentic', 'Vans', 8, 20, 'vans2.png'),
-(13, 50, 'Multi', 'Vans Checkerboard Slip-On', 'Vans', 9, 20, 'vans1.png'),
-(14, 75, 'White', 'Converse Chuck Taylor All Star', 'Converse', 10, 20, 'converse5.jpg'),
-(15, 75, 'Red Camo', 'Converse Chuck Taylor All Star', 'Converse', 10, 20, 'converse3.jpg'),
-(16, 75, 'Camo', 'Converse Chuck Taylor All Star', 'Converse', 8.5, 20, 'converse2.jpg'),
-(17, 75, 'Grey', 'Converse Chuck Taylor All Star', 'Converse', 9.5, 20, 'converse1.jpg'),
-(18, 100, 'Grey', 'Puma Axelion ', 'Puma', 10.5, 20, 'puma5.jpg'),
-(19, 100, 'Red', 'Puma Enzo Lean Training', 'Puma', 9.5, 20, 'puma4.jpg'),
-(20, 100, 'Grey', 'Puma Enzo Knit NM', 'Puma', 12, 20, 'puma3.jpg'),
-(21, 100, 'White', 'Puma Super Levitate', 'Puma', 9.5, 20, 'puma2.jpg'),
-(22, 150, 'Black', 'Adidas Swift Run', 'Adidas', 9, 20, 'adidas3.jpg'),
-(23, 150, 'Brown', 'Adidas Swift Run ', 'Adidas', 10.5, 20, 'adidas2.jpg'),
-(24, 150, 'Dark Grey', 'Adidas Swift Run', 'Adidas', 10, 20, 'adidas1.jpg'),
-(25, 50, 'Black', 'Vans Coral Snake Kyle Walker', 'Vans', 10, 20, 'vans5.png'),
-(26, 225, 'Tan', 'Timberland Premium Boots', 'Timberlands', 9, 20, 'timb1.jpg'),
-(27, 225, 'Brown', 'Timberland Maddsen Hiking Boot', 'Timberlands', 10, 20, 'timb2.jpg'),
+(1, 50, 'Black', 'Vans Berle Pro', 'Vans', 9, 20, 'vans4.png'),
+(2, 75, 'Black', 'Converse Chuck Taylor Hi Top', 'Converse', 9.5, 20, 'converse4.jpg'),
 (28, 225, 'Black', 'Timberland Field Boots', 'Timberlands', 10.5, 20, 'timb3.jpg'),
 (29, 225, 'Brown', 'Timberland FlyRoam Trail Hiker', 'Timberlands', 10, 20, 'timb4.jpg'),
-(30, 225, 'Green', 'Timberland Jacquard Boots', 'Timberlands', 11, 20, 'timb5.jpg');
+(30, 225, 'Green', 'Timberland Jacquard Boots', 'Timberlands', 11, 17, 'timb5.jpg');
 
 -- --------------------------------------------------------
 

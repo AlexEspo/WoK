@@ -2,7 +2,7 @@ $(document).ready(function(){
   $("#search").keyup(function(){
         $.ajax({
             type: "POST",
-            url: '../Products/searchProducts.php',
+            url: '../Products/products.php',
             data: {'search': $("#search").val()},
             success: function(data){
                 $("#Results").html(data);

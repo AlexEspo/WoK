@@ -43,14 +43,5 @@
   <span class="navbar-text">
       <a class="nav-item nav-link" style="color: #000000"> <?php echo $_SESSION['user'];  ?> </a>
   </span>
-  <div class="cart">
-    <a class="navbar-brand float-right" href="../Cart/cart.php" onclick="Cart()">
-    <script>
-      function Cart(){
-        window.location="../Cart/cart.php";
-      }
-    </script>
-          <img src="../cart.png" height="30" alt="">
-        </a>
-</div>
+  
 </nav>
